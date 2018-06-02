@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <FrameLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -24,6 +24,7 @@
                     android:id="@+id/photo"
                     android:layout_width="match_parent"
                     android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
                     android:layout_height="wrap_content" />
 
                 <View
@@ -34,14 +35,17 @@
             </FrameLayout>
 
             <com.example.xyzreader.ui.MaxWidthLinearLayout
+                android:layout_below="@+id/photo_container"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:maxWidth="@dimen/detail_card_max_width"
                 android:background="#fff"
-                android:elevation="2dp"
-                android:layout_marginTop="@dimen/detail_card_top_margin">
+                android:elevation="2dp">
+
+                <!--
+                android:layout_marginTop="@dimen/detail_card_top_margin"-->
 
                 <LinearLayout
                     android:id="@+id/meta_bar"
@@ -90,10 +94,10 @@
                     android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier" />
 
             </com.example.xyzreader.ui.MaxWidthLinearLayout>
-        </FrameLayout>
+        </RelativeLayout>
     </com.example.xyzreader.ui.ObservableScrollView>
 
-    <ImageButton android:id="@+id/share_fab"
+    <android.support.design.widget.FloatingActionButton android:id="@+id/share_fab"
         android:stateListAnimator="@animator/fab_state_list_anim"
         android:background="@drawable/add_fab_background"
         android:layout_gravity="bottom|end"
